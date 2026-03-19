@@ -1,0 +1,222 @@
+/* =============================================
+   ÁRBOL DE ROSAS ROSADAS - Estilos principales
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lato:wght@300;400&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --rosa-claro: #ffb6c1;
+    --rosa-medio: #ff85a1;
+    --rosa-fuerte: #ff4d79;
+    --rosa-oscuro: #c2185b;
+    --petal-1: #ffc0cb;
+    --petal-2: #ff85a1;
+    --petal-3: #ff69b4;
+    --centro: #fff0a0;
+    --tronco: #6b3a2a;
+    --fondo: #fff5f8;
+    --borde-fondo: #ffe4ec;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--fondo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ---- Bordes decorativos de flores ---- */
+.border-flowers {
+    width: 100%;
+    height: 90px;
+    background: var(--borde-fondo);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.border-flowers.top {
+    border-bottom: 2px solid var(--rosa-claro);
+}
+
+.border-flowers.bottom {
+    border-top: 2px solid var(--rosa-claro);
+    margin-top: auto;
+}
+
+.border-flower-item {
+    position: absolute;
+    font-size: 2rem;
+    animation: sway 3s ease-in-out infinite alternate;
+    user-select: none;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(-8deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(8deg) scale(1.1);
+    }
+}
+
+/* ---- Canvas principal ---- */
+.scene-wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 16px 20px;
+    flex: 1;
+}
+
+#flowerCanvas {
+    width: 100%;
+    max-width: 400px;
+    height: 320px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, #fff5f8 0%, #ffe4f0 100%);
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.18);
+    cursor: pointer;
+    display: block;
+}
+
+/* ---- Caja de mensaje romántico ---- */
+.message-box {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid var(--rosa-claro);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    min-height: 72px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 16px rgba(255, 105, 180, 0.1);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.message-box.visible {
+    opacity: 1;
+}
+
+.message-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.15rem;
+    color: var(--rosa-fuerte);
+    margin-bottom: 6px;
+    min-height: 1.4em;
+}
+
+.message-body {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    min-height: 1.4em;
+}
+
+/* Cursor parpadeante del typewriter */
+.cursor::after {
+    content: '|';
+    animation: blink 0.7s step-end infinite;
+    color: var(--rosa-fuerte);
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ---- Cronómetro del amor ---- */
+.timer-box {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+    border-radius: 12px;
+    border: 1px solid var(--rosa-claro);
+    text-align: center;
+}
+
+.timer-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #999;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+}
+
+.timer-display {
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    color: var(--rosa-oscuro);
+    font-weight: 600;
+}
+
+/* ---- Botón de reiniciar ---- */
+.btn-restart {
+    margin-top: 14px;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--rosa-medio), var(--rosa-fuerte));
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 77, 121, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: none;
+}
+
+.btn-restart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 77, 121, 0.45);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 430px) {
+    .border-flowers {
+        height: 70px;
+    }
+
+    #flowerCanvas {
+        height: 270px;
+    }
+
+    .message-title {
+        font-size: 1rem;
+    }
+
+    .message-body {
+        font-size: 0.82rem;
+    }
+}
