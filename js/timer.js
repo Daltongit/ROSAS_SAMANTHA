@@ -1,50 +1,39 @@
-/* =============================================
-   timer.js  –  Cronómetro romántico
-   =============================================
-   ⬇️  CAMBIA START_DATE a tu fecha real 💕
-   ============================================= */
+/* ==============================================
+   timer.js  —  Cronómetro romántico
+   ==============================================
+   👇 CAMBIA ESTA FECHA a cuando empezó tu amor
+   ============================================== */
 
 const RomanticTimer = (() => {
 
-    // 👇 Cambia esto a la fecha en que comenzó tu amor
-    const START_DATE = new Date('2024-01-01T00:00:00');
+  const START_DATE = new Date('2026-03-01T00:00:00');
 
-    let timerEl = null;
-    let intervalId = null;
+  let el  = null;
+  let iid = null;
 
-    function pad(n) {
-        return String(Math.floor(n)).padStart(2, '0');
+  function pad(n) { return String(Math.floor(n)).padStart(2,'0'); }
+
+  function tick() {
+    const diff = Date.now() - START_DATE.getTime();
+    if (diff < 0) {
+      el.textContent = '¡Pronto empieza nuestra historia! 💕';
+      return;
     }
+    const s  = Math.floor(diff / 1000);
+    const m  = Math.floor(s  / 60);
+    const h  = Math.floor(m  / 60);
+    const d  = Math.floor(h  / 24);
+    el.textContent = `${d} días · ${pad(h%24)} h · ${pad(m%60)} min · ${pad(s%60)} seg`;
+  }
 
-    function update() {
-        const now = new Date();
-        const diff = now - START_DATE;
+  function init(elRef) {
+    el = elRef;
+    tick();
+    if (iid) clearInterval(iid);
+    iid = setInterval(tick, 1000);
+  }
 
-        if (diff < 0) {
-            timerEl.textContent = '¡Pronto comienza nuestra historia! 💕';
-            return;
-        }
-
-        const totalSeg = Math.floor(diff / 1000);
-        const segundos = totalSeg % 60;
-        const totalMin = Math.floor(totalSeg / 60);
-        const minutos = totalMin % 60;
-        const totalHora = Math.floor(totalMin / 60);
-        const horas = totalHora % 24;
-        const dias = Math.floor(totalHora / 24);
-
-        timerEl.textContent =
-            `${dias} días ${pad(horas)} horas ${pad(minutos)} minutos ${pad(segundos)} segundos`;
-    }
-
-    function init(el) {
-        timerEl = el;
-        update();
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(update, 1000);
-    }
-
-    return { init };
+  return { init };
 })();
 
 window.RomanticTimer = RomanticTimer;
