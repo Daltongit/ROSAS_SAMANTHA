@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Árbol de Rosas Rosadas 🌸</title>
-    <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rosas Para Ti 🌸</title>
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
-
 <body>
 
-    <!-- Fondo decorativo de rosas en los bordes -->
-    <div class="border-flowers top"></div>
-    <div class="border-flowers bottom"></div>
+  <!-- Banda superior de flores -->
+  <div class="petal-band top" id="bandTop"></div>
 
-    <!-- Contenedor principal de la animación -->
-    <div class="scene-wrapper">
-        <canvas id="flowerCanvas"></canvas>
+  <!-- Escena principal -->
+  <main class="scene">
+    <canvas id="c"></canvas>
 
-        <!-- Mensaje romántico con efecto typewriter -->
-        <div class="message-box" id="messageBox">
-            <p class="message-title" id="messageTitle"></p>
-            <p class="message-body" id="messageBody"></p>
-        </div>
+    <!-- Partículas flotantes de pétalos -->
+    <div class="petals-float" id="petalsFloat"></div>
 
-        <!-- Cronómetro del amor -->
-        <div class="timer-box">
-            <span class="timer-label">Mi amor por ti comenzó hace...</span>
-            <span class="timer-display" id="timerDisplay">0 días 0 horas 0 minutos 0 segundos</span>
-        </div>
+    <!-- Tarjeta de mensaje -->
+    <div class="card" id="card">
+      <div class="card-inner">
+        <p class="card-title" id="cardTitle"></p>
+        <p class="card-body"  id="cardBody"></p>
+      </div>
     </div>
 
-    <script src="js/flowers.js"></script>
-    <script src="js/timer.js"></script>
-    <script src="js/main.js"></script>
-</body>
+    <!-- Cronómetro -->
+    <div class="clock" id="clock">
+      <span class="clock-label">💕 Nuestro tiempo juntos</span>
+      <span class="clock-time" id="clockTime">—</span>
+    </div>
 
+    <!-- Botón reiniciar -->
+    <button class="btn-again" id="btnAgain">🌸 Ver de nuevo</button>
+  </main>
+
+  <!-- Banda inferior de flores -->
+  <div class="petal-band bottom" id="bandBottom"></div>
+
+  <script src="js/flowers.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
