@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rosas Para Ti 🌸</title>
-  <link rel="stylesheet" href="css/styles.css"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Para mi lugar seguro 🌸</title>
+    <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 
-  <!-- Banda superior de flores -->
-  <div class="petal-band top" id="bandTop"></div>
+    <div class="petal-band top" id="bandTop"></div>
 
-  <!-- Escena principal -->
-  <main class="scene">
-    <canvas id="c"></canvas>
+    <main class="scene">
+        <div class="canvas-container">
+            <canvas id="c"></canvas>
+            <div class="petals-float" id="petalsFloat"></div>
+        </div>
 
-    <!-- Partículas flotantes de pétalos -->
-    <div class="petals-float" id="petalsFloat"></div>
+        <div class="card" id="card">
+            <div class="card-inner">
+                <p class="card-title" id="cardTitle"></p>
+                <p class="card-body" id="cardBody"></p>
+            </div>
+        </div>
 
-    <!-- Tarjeta de mensaje -->
-    <div class="card" id="card">
-      <div class="card-inner">
-        <p class="card-title" id="cardTitle"></p>
-        <p class="card-body"  id="cardBody"></p>
-      </div>
-    </div>
+        <div class="clock" id="clock">
+            <span class="clock-label">💕 Nuestro tiempo juntos</span>
+            <span class="clock-time" id="clockTime">00 días · 00 h · 00 min · 00 seg</span>
+        </div>
 
-    <!-- Cronómetro -->
-    <div class="clock" id="clock">
-      <span class="clock-label">💕 Nuestro tiempo juntos</span>
-      <span class="clock-time" id="clockTime">—</span>
-    </div>
+        <button class="btn-again" id="btnAgain">🌸 Ver de nuevo</button>
+    </main>
 
-    <!-- Botón reiniciar -->
-    <button class="btn-again" id="btnAgain">🌸 Ver de nuevo</button>
-  </main>
+    <div class="petal-band bottom" id="bandBottom"></div>
 
-  <!-- Banda inferior de flores -->
-  <div class="petal-band bottom" id="bandBottom"></div>
-
-  <script src="js/flowers.js"></script>
-  <script src="js/timer.js"></script>
-  <script src="js/main.js"></script>
+    <script src="js/flowers.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
